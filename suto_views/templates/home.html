@@ -1,0 +1,64 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block content %}
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <div class="my-line"></div>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <div class="my-line"></div>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <div class="my-line fin"></div>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'img/carousel-1.png' %}" class="d-block w-100 darken" alt="{% static 'img/carousel-1.png' %}">
+            <div class="carousel-caption d-none d-md-block">
+                <h1 class="carousel-header" >КВАРТИРЫ</h1>
+                <p class="carousel-subtitle">посуточно в г.Алматы</p>
+                <a class="btn btn-outline-white" aria-current="page" href="#">ЗАБРОНИРОВАТЬ КВАРТИРУ</a>
+            </div>
+            <div class="carousel-phone">
+                <img src="{% static 'img/icons/phone.svg' %}">
+                <a href="#"><span class="text">ЗАРЕЗЕРВИРОВАТЬ</span><br><span class="phone">+ 7 777 777 77 77</span></a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/carousel-1.png' %}" class="d-block w-100 darken" alt="{% static 'img/carousel-1.png' %}">
+            <div class="carousel-caption d-none d-md-block">
+                <h1 class="carousel-header" >ЭЛИТНЫЕ КВАРТИРЫ</h1>
+                <p class="carousel-subtitle">посуточно в г.Алматы, только район Мега Центра!</p>
+                <a class="btn btn-outline-white" aria-current="page" href="#">ЗАБРОНИРОВАТЬ КВАРТИРУ</a>
+            </div>
+            <div class="carousel-phone">
+                <img src="{% static 'img/icons/phone.svg' %}">
+                <a href="#"><span class="text">ЗАРЕЗЕРВИРОВАТЬ</span><br><span class="phone">+ 7 777 777 77 77</span></a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/carousel-1.png' %}" class="d-block w-100 darken" alt="{% static 'img/carousel-1.png' %}">
+            <div class="carousel-caption d-none d-md-block">
+                <h1 class="carousel-header" >ЭЛИТНЫЕ КВАРТИРЫ</h1>
+                <p class="carousel-subtitle">посуточно в г.Алматы, только район Мега Центра!</p>
+                <a class="btn btn-outline-white" aria-current="page" href="#">ЗАБРОНИРОВАТЬ КВАРТИРУ</a>
+            </div>
+            <div class="carousel-phone">
+                <img src="{% static 'img/icons/phone.svg' %}">
+                <a href="#"><span class="text">ЗАРЕЗЕРВИРОВАТЬ</span><br><span class="phone">+ 7 777 777 77 77</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="light-gold-background">
+        <form>
+            <label>Заезд</label>
+            <input class="form-control w-25" type="date"/>
+            <label>Выезд</label>
+            <input class="form-control w-25" type="date"/>
+            <a class="btn btn-gold" aria-current="page" href="#">ЗАБРОНИРОВАТЬ КВАРТИРУ</a>
+        </form>
+    </div>
+</div>
+{% endblock content %}

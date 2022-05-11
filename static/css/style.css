@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+
+body {
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+
+.carousel-header {
+    font-family: 'Prata';
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 81px;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+}
+
+.darken {
+    filter: brightness(35%);
+}
+
+.my-nav {
+    background-color: white;
+}
+
+.nav-link {
+    padding-left: 15px!important;
+    padding-right: 15px!important;
+    color: black!important;
+}
+
+.nav-link:hover {
+    color: #AA8453!important;
+}
+
+.nav-link.active {
+    color: #AA8453!important;
+    font-weight: 400;
+}
+
+.carousel-subtitle {
+    font-size: 25px;
+    line-height: 29px;
+    font-weight: 200;
+    margin-bottom: 110px;
+}
+
+.carousel-phone {
+    position: absolute;
+    bottom: 270px;
+    left: 50px;
+    display: flex;
+    rotate: -90deg;
+}
+
+.carousel-phone a {
+    text-decoration: none;
+    line-height: 12px;
+}
+
+.carousel-phone .phone {
+    top: -10px;
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #AA8453;
+    word-spacing: 4px;
+}
+
+.carousel-phone img{
+    width: fit-content;
+    height: fit-content;
+    rotate: 90deg;
+    margin-right: 20px;
+}
+
+.carousel-phone .text{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.23em;
+
+    color: #FFFFFF;
+}
+
+.btn {
+    padding-left: 31px;
+    padding-right: 31px;
+}
+
+.btn-gold {
+    color: white;
+    background-color: #AA8453;
+    border-color: #AA8453;
+    border-radius: 0;
+    font-weight: 200;
+}
+
+.btn-gold:hover {
+    color: white;
+    background-color: #745b39;
+}
+
+.btn-outline-gold {
+    color: #AA8453;
+    background-color: white;
+    border-color: #AA8453;
+    border-radius: 0;
+    font-weight: 200;
+}
+
+.btn-outline-gold:hover{
+    color: white;
+    background-color: #AA8453;
+}
+
+.btn-outline-white {
+    color: white;
+    background-color: none;
+    border-color: white;
+    border-radius: 0;
+    font-weight: 200;
+}
+
+.btn-outline-white:hover{
+    color: #AA8453;
+    background-color: white;
+}
+
+.carousel-indicators{
+    position: absolute;
+    left: auto;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin-right: 8%;
+    margin-bottom: 0!important;
+    margin-left: 8%;
+    list-style: none;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+.my-line {
+    margin: 0;
+    height: 10px;
+    width: 1px;
+    background-color: white;
+    opacity: 1;
+    margin-left: 6px;
+}
+
+.my-line.fin {
+    height: 38px;
+}
+
+.carousel-indicators button {
+    width: 3px!important;
+    height: 50px!important;
+    opacity: 1!important;
+    border: 0!important;
+    margin-left: 4px!important;
+}
+
+.carousel-indicators button.active {
+    background-color: #AA8453;
+    margin-left: 3px!important;
+    width: 4px!important;
+}
+
+.carousel-caption {
+    top: 226px;
+}
+
+.light-gold-background {
+    background-color: #F8F5F0;
+    padding: 30px;
+}
+
+.light-gold-background label {
+    font-family: 'Prata';
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 34px;
+}
