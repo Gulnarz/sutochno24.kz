@@ -1,0 +1,165 @@
+{% extends 'template.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex flex-row align-items-end">
+        <h3 class="main-text">{{apartment.address}}<br/>{{apartment.type|apartment}} {{apartment.name}}</h3>
+        <hr class="w-50" style="color:#767676;">
+    </div>
+    <div class="d-flex mb-5">
+        <img class="big-img" src="/media/{{apartment.photo_main}}">
+        <div class="d-flex flex-column">
+            <div class="small-imgs">
+                <div class="small-img">
+                    <a href="#" id="1" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                        <div class="zoom-border">
+                            <img src="{% static 'img/icons/zoom.svg' %}">
+                        </div>
+                    </a>
+                    <img src="/media/{{apartment.photo_1}}">
+                </div>
+                <div class="small-img">
+                    <a href="#" id="2" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                        <div class="zoom-border">
+                            <img src="{% static 'img/icons/zoom.svg' %}">
+                        </div>
+                    </a>
+                    <img src="/media/{{apartment.photo_2}}">
+                </div>
+                <div class="small-img">
+                    <a href="#" id="3" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                        <div class="zoom-border">
+                            <img src="{% static 'img/icons/zoom.svg' %}">
+                        </div>
+                    </a>
+                    <img src="/media/{{apartment.photo_3}}">
+                </div>
+            </div>
+            <div class="small-imgs mt-auto">
+                <div class="small-img">
+                    <a href="#" id="4" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                        <div class="zoom-border">
+                            <img src="{% static 'img/icons/zoom.svg' %}">
+                        </div>
+                    </a>
+                    <img src="/media/{{apartment.photo_4}}">
+                </div>
+                <div class="small-img">
+                    <a href="#" id="5" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                        <div class="zoom-border">
+                            <img src="{% static 'img/icons/zoom.svg' %}">
+                        </div>
+                    </a>
+                    <img src="/media/{{apartment.photo_5}}">
+                </div>
+                <div class="small-img">
+                    <a href="#" id="6" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                        <div class="zoom-border">
+                            <img src="{% static 'img/icons/zoom.svg' %}">
+                        </div>
+                    </a>
+                    <img src="/media/{{apartment.photo_6}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h2 class="description-title">Описание</h2>
+        <div class="col-8">
+            <div class="d-flex mb-2">
+                <img class="me-3" src="{% static 'img/icons/people.svg' %}">
+                <p class="blue-text">
+                    возможность размещения {{apartment.max_person}}
+                </p>
+            </div>
+            <div class="d-flex mb-2">
+                <img style="height: 30px; margin-top: 5px; margin-bottom: 5px; margin-left: 10px;" class="me-3" src="{% static 'img/icons/bed-1.svg' %}">
+                <p class="blue-text">
+                    1 местная кровать
+                </p>
+                <img style="height: 30px; margin-top: 5px; margin-bottom: 5px; margin-left: 10px;" class="me-3" src="{% static 'img/icons/bed-2.svg' %}">
+                <p class="blue-text">
+                    2-х местная кровать + диван
+                </p>
+            </div>
+            <div class="description">
+                {{apartment.description|safe|linebreaks }}
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="justify-content-center">
+                <p class="price-text">Базовая цена: <span class="price">{{apartment.price}}</span> ₸ / сут</p>
+            </div>
+            <iframe
+                width="100%"
+                height="400px"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="{{apartment.googlemap_addres}}">
+            </iframe>
+        </div>
+        <div class="col-2 offset-5 mb-5">
+            <a class="nav-link phone" href="#">
+                <img src="{% static 'img/icons/phone.svg' %}">
+                <div class="ms-3">
+                    <p style="color: #395F7D" class="phone-top-text">ЗАРЕЗЕРВИРОВАТЬ</p>
+                    <p class="phone-bot-text">+ 7  777  777  77  77</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-2 offset-3 mb-5 d-flex justify-content-end">
+            <a class="nav-link phone" href="#">
+                <img width="40px" src="{% static 'img/icons/whatsapp.png' %}">
+                <div class="ms-3">
+                    <p style="color: #395F7D" class="phone-top-text">ЗАРЕЗЕРВИРОВАТЬ</p>
+                    <p class="phone-bot-text">Whats App</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="photoModalLabel">{{apartment.name}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img width="100%" id="modal_img">
+            </div>
+        </div>
+    </div>
+</div>  
+{% endblock content %}
+
+{% block script %}
+<script>
+    function change_image(event) {
+        if (event.target.id) {
+            elem = (event.target)
+        } else if (event.target.offsetParent.id) {
+            elem = (event.target.offsetParent)
+        } else if (event.target.offsetParent.offsetParent.id) {
+            elem = (event.target.offsetParent.offsetParent)
+        }
+        img = document.getElementById("modal_img")
+        switch (elem.id) {
+            case "1":img.src = "/media/{{apartment.photo_1}}";break;
+            case "2":img.src = "/media/{{apartment.photo_2}}";break;
+            case "3":img.src = "/media/{{apartment.photo_3}}";break;
+            case "4":img.src = "/media/{{apartment.photo_4}}";break;
+            case "5":img.src = "/media/{{apartment.photo_5}}";break;
+            case "6":img.src = "/media/{{apartment.photo_6}}";break;
+            default:
+                break;
+        }
+    }
+</script>
+{% endblock script %}

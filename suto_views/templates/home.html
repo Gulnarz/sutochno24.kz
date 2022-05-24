@@ -1,64 +1,114 @@
 {% extends 'template.html' %}
 {% load static %}
+{% load custom_tags %}
 
 {% block content %}
-<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <div class="my-line"></div>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <div class="my-line"></div>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <div class="my-line fin"></div>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{% static 'img/carousel-1.png' %}" class="d-block w-100 darken" alt="{% static 'img/carousel-1.png' %}">
-            <div class="carousel-caption d-none d-md-block">
-                <h1 class="carousel-header" >КВАРТИРЫ</h1>
-                <p class="carousel-subtitle">посуточно в г.Алматы</p>
-                <a class="btn btn-outline-white" aria-current="page" href="#">ЗАБРОНИРОВАТЬ КВАРТИРУ</a>
-            </div>
-            <div class="carousel-phone">
-                <img src="{% static 'img/icons/phone.svg' %}">
-                <a href="#"><span class="text">ЗАРЕЗЕРВИРОВАТЬ</span><br><span class="phone">+ 7 777 777 77 77</span></a>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'img/carousel-1.png' %}" class="d-block w-100 darken" alt="{% static 'img/carousel-1.png' %}">
-            <div class="carousel-caption d-none d-md-block">
-                <h1 class="carousel-header" >ЭЛИТНЫЕ КВАРТИРЫ</h1>
-                <p class="carousel-subtitle">посуточно в г.Алматы, только район Мега Центра!</p>
-                <a class="btn btn-outline-white" aria-current="page" href="#">ЗАБРОНИРОВАТЬ КВАРТИРУ</a>
-            </div>
-            <div class="carousel-phone">
-                <img src="{% static 'img/icons/phone.svg' %}">
-                <a href="#"><span class="text">ЗАРЕЗЕРВИРОВАТЬ</span><br><span class="phone">+ 7 777 777 77 77</span></a>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'img/carousel-1.png' %}" class="d-block w-100 darken" alt="{% static 'img/carousel-1.png' %}">
-            <div class="carousel-caption d-none d-md-block">
-                <h1 class="carousel-header" >ЭЛИТНЫЕ КВАРТИРЫ</h1>
-                <p class="carousel-subtitle">посуточно в г.Алматы, только район Мега Центра!</p>
-                <a class="btn btn-outline-white" aria-current="page" href="#">ЗАБРОНИРОВАТЬ КВАРТИРУ</a>
-            </div>
-            <div class="carousel-phone">
-                <img src="{% static 'img/icons/phone.svg' %}">
-                <a href="#"><span class="text">ЗАРЕЗЕРВИРОВАТЬ</span><br><span class="phone">+ 7 777 777 77 77</span></a>
-            </div>
-        </div>
-    </div>
+
+<div class="container-fluid">
+    <img class="w-100" src="{% static 'img/main.jpg' %}">
 </div>
-<div class="container mt-5">
-    <div class="light-gold-background">
-        <form>
-            <label>Заезд</label>
-            <input class="form-control w-25" type="date"/>
-            <label>Выезд</label>
-            <input class="form-control w-25" type="date"/>
-            <a class="btn btn-gold" aria-current="page" href="#">ЗАБРОНИРОВАТЬ КВАРТИРУ</a>
-        </form>
+<div class="container">
+    <div class="row">
+        <p class="main-text mt-4 mb-4">Алматы, ЖК Алмалы, напротив Алматы Арены</p>
+        <div class="col-8">
+            <div id="cards">
+                {% for apartment in apartments %}
+                <div class="my-card">
+                    <img class="me-5" src="/media/{{apartment.photo_main_little}}">
+                    <div class="card-body">
+                        <h6 class="apartment-title">{{apartment.type|apartment}}</h6>
+                        <p class="apartment-content"><span class="fw-500">Базовая цена:</span> {{apartment.price|space}} Тенге/Cутки</p>
+                        <p class="float-start apartment-rooms" style="width: fit-content">{{apartment.name}}</p>
+                        <a href="/apartment/{{apartment.name}}" class="float-end btn btn-blue">Подробнее</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="text-center mb-5">
+                <button id="show_more" onclick="add_data()" class="btn btn-blue">Показать еще</button>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="block">
+                <p class="search">Поиск по количеству комнат</p>
+                <a {% if type == 1 %}href="/"{% else %}href="/?rooms=1"{% endif %} class="btn btn-toggle-blue me-5 {% if type == 1 %}active{% endif %}">1</a>
+                <a {% if type == 2 %}href="/"{% else %}href="/?rooms=2"{% endif %} class="btn btn-toggle-blue {% if type == 2 %}active{% endif %}">2</a>
+            </div>
+            <h2 class="description-title">Описание</h2>
+            <p class="description">
+                Предоставляем большой выбор квартир в ЖК Алмалы, Базис, Almaty Arena.<br/>
+                <br/>
+                Развитая инфраструктура<br/>
+                Расчетный час 12:00 часов дня.<br/>
+                Заезд в квартиру после 14:00 часов.<br/>
+                Выезд до 12:00 часов.<br/>
+                Влажная уборка квартиры с 12:00 до 14:00.<br/>
+                При раннем заезде или позднем выезде производится доплата из расчета 1000 тенге в час.<br/>
+                <br/>
+                При заезде более 2-х персон, а так же в выходные и праздничные дни стоимость может меняться.<br/>
+                <br/>
+                По запросу предоставляем полный пакет документов.<br/>
+                <br/>
+                Принимается любая форма оплаты.<br/>
+                <br/>
+                При заселении при себе иметь документ удосторяющий личность - удостоврение, паспорт.<br/>
+                <br/>
+                Курить в квартире ЗАПРЕЩЕНО.<br/>
+                ШТРАФ - 10 000 ₸. Курить разрешено только на балконе.<br/>
+                В квартире есть абсолютно все для длительного и комфортного пребывания.<br/>
+                <br/>
+                Имеются: одноразовый набор - паста, щетка, шампунь, набор полотенец (банное, лицевое и для ног).<br/>
+                Предоставляются по индивидуальному запросу белые вафельные халаты. Аренда халата 1000 тенге.<br/>
+            </p>
+        </div>
     </div>
 </div>
 {% endblock content %}
+
+{% block script %}
+<script>
+    var page = 1
+    var button = document.getElementById("show_more")
+    var has_next = {% if has_next %}true{% else %}false{% endif %}
+    
+    window.onload = start
+
+    function start() {
+        if (!has_next) {
+            button.disabled = true
+        }
+    }
+
+    async function getData() {
+        response = await fetch(`/api/more_apartments?page=${page}{% if type %}&rooms=${"{{type}}"}{% endif %}`, {
+            method: "GET",
+            mode: 'no-cors',
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
+        });
+        return response.json();
+    }
+
+    async function add_data() {
+        page++;
+        datas = await getData();
+        has_next = datas.has_next
+        for (var id = 0; id < datas.apartments.length; id++) {
+            data = datas.apartments[id]
+            type = "Двухкомнатная квартира"
+            if (data.type == "О") type = "Однокомнатная квартира"
+            document.getElementById("cards").innerHTML += `<div class="my-card">
+                        <img class="me-5" src="${data.photo_main_little}">
+                        <div class="card-body">
+                            <h6 class="apartment-title">${type}</h6>
+                            <p class="apartment-content"><span class="fw-500">Базовая цена:</span> ${data.price.toLocaleString()} Тенге/Cутки</p>
+                            <p class="float-start apartment-rooms" style="width: fit-content">${data.name}</p>
+                            <a href="/apartment/${data.name}" class="float-end btn btn-blue">Подробнее</a>
+                        </div>
+                    </div>`;
+        }
+        start();
+    }
+</script>
+{% endblock script %}
