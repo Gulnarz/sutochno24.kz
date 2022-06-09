@@ -3,64 +3,86 @@
 {% load custom_tags %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="d-flex flex-row align-items-end">
-        <h3 class="main-text">{{apartment.address}}<br/>{{apartment.type|apartment}} {{apartment.name}}</h3>
-        <hr class="w-50" style="color:#767676;">
+<div class="container mt-3">
+    <div class="row align-items-end">
+        <div class="col-md-8 col-12">
+            <h3 class="main-text">{{apartment.address}}<br/>{{apartment.type|apartment}} {{apartment.name}}</h3>
+        </div>
+        <div class="col-md-4 col-12"><hr style="color:#767676;"></div>
     </div>
-    <div class="d-flex mb-5">
-        <img class="big-img" src="/media/{{apartment.photo_main}}">
-        <div class="d-flex flex-column">
-            <div class="small-imgs">
-                <div class="small-img">
-                    <a href="#" id="1" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
-                        <div class="zoom-border">
-                            <img src="{% static 'img/icons/zoom.svg' %}">
+    <div class="row mb-5">
+        <div class="col-md-6 col-12 mb-md-0 mb-3">
+            <img class="big-img" src="/media/{{apartment.photo_main}}">
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="d-flex flex-md-column flex-row align-items-start h-100">
+                <div class="col me-md-0 me-3 mb-auto">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="small-img">
+                                <a href="#" id="1" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                                    <div class="zoom-border">
+                                        <img class="zoom-img" src="{% static 'img/icons/zoom.svg' %}">
+                                    </div>
+                                </a>
+                                <img src="/media/{{apartment.photo_1}}">
+                            </div>
                         </div>
-                    </a>
-                    <img src="/media/{{apartment.photo_1}}">
+                        <div class="col-4">
+                            <div class="small-img">
+                                <a href="#" id="2" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                                    <div class="zoom-border">
+                                        <img class="zoom-img" src="{% static 'img/icons/zoom.svg' %}">
+                                    </div>
+                                </a>
+                                <img src="/media/{{apartment.photo_2}}">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="small-img">
+                                <a href="#" id="3" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                                    <div class="zoom-border">
+                                        <img class="zoom-img" src="{% static 'img/icons/zoom.svg' %}">
+                                    </div>
+                                </a>
+                                <img src="/media/{{apartment.photo_3}}">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="small-img">
-                    <a href="#" id="2" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
-                        <div class="zoom-border">
-                            <img src="{% static 'img/icons/zoom.svg' %}">
+                <div class="col ms-md-0 ms-2 d-flex align-items-end">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="small-img">
+                                <a href="#" id="4" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                                    <div class="zoom-border">
+                                        <img class="zoom-img" src="{% static 'img/icons/zoom.svg' %}">
+                                    </div>
+                                </a>
+                                <img src="/media/{{apartment.photo_4}}">
+                            </div>
                         </div>
-                    </a>
-                    <img src="/media/{{apartment.photo_2}}">
-                </div>
-                <div class="small-img">
-                    <a href="#" id="3" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
-                        <div class="zoom-border">
-                            <img src="{% static 'img/icons/zoom.svg' %}">
+                        <div class="col-4">
+                            <div class="small-img">
+                                <a href="#" id="5" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                                    <div class="zoom-border">
+                                        <img class="zoom-img" src="{% static 'img/icons/zoom.svg' %}">
+                                    </div>
+                                </a>
+                                <img src="/media/{{apartment.photo_5}}">
+                            </div>
                         </div>
-                    </a>
-                    <img src="/media/{{apartment.photo_3}}">
-                </div>
-            </div>
-            <div class="small-imgs mt-auto">
-                <div class="small-img">
-                    <a href="#" id="4" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
-                        <div class="zoom-border">
-                            <img src="{% static 'img/icons/zoom.svg' %}">
+                        <div class="col-4">
+                            <div class="small-img">
+                                <a href="#" id="6" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
+                                    <div class="zoom-border">
+                                        <img class="zoom-img" src="{% static 'img/icons/zoom.svg' %}">
+                                    </div>
+                                </a>
+                                <img src="/media/{{apartment.photo_6}}">
+                            </div>
                         </div>
-                    </a>
-                    <img src="/media/{{apartment.photo_4}}">
-                </div>
-                <div class="small-img">
-                    <a href="#" id="5" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
-                        <div class="zoom-border">
-                            <img src="{% static 'img/icons/zoom.svg' %}">
-                        </div>
-                    </a>
-                    <img src="/media/{{apartment.photo_5}}">
-                </div>
-                <div class="small-img">
-                    <a href="#" id="6" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
-                        <div class="zoom-border">
-                            <img src="{% static 'img/icons/zoom.svg' %}">
-                        </div>
-                    </a>
-                    <img src="/media/{{apartment.photo_6}}">
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,32 +90,40 @@
 </div>
 <div class="container">
     <div class="row">
-        <h2 class="description-title">Описание</h2>
-        <div class="col-8">
+        <h2 class="description-title-little">Описание</h2>
+        <div class="col-md-8 col-12">
             <div class="d-flex mb-2">
                 <img class="me-3" src="{% static 'img/icons/people.svg' %}">
                 <p class="blue-text">
                     возможность размещения {{apartment.max_person}}
                 </p>
             </div>
-            <div class="d-flex mb-2">
-                <img style="height: 30px; margin-top: 5px; margin-bottom: 5px; margin-left: 10px;" class="me-3" src="{% static 'img/icons/bed-1.svg' %}">
-                <p class="blue-text">
-                    1 местная кровать
-                </p>
-                <img style="height: 30px; margin-top: 5px; margin-bottom: 5px; margin-left: 10px;" class="me-3" src="{% static 'img/icons/bed-2.svg' %}">
-                <p class="blue-text">
-                    2-х местная кровать + диван
-                </p>
+            <div class="d-flex flex-md-row flex-column mb-2">
+                <div class="d-flex flex-row">
+                    <img style="height: 30px; margin-top: 5px; margin-bottom: 5px; margin-left: 10px;" class="me-3" src="{% static 'img/icons/bed-1.svg' %}">
+                    <p class="blue-text">
+                        1 местная кровать
+                    </p>
+                </div>
+                <div class="d-flex flex-row">
+                    <img style="height: 30px; margin-top: 5px; margin-bottom: 5px; margin-left: 10px;" class="me-3" src="{% static 'img/icons/bed-2.svg' %}">
+                    <p class="blue-text">
+                        2-х местная кровать + диван
+                    </p>
+                </div>
             </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="justify-content-md-center">
+                <p class="price-text">Базовая цена: <span class="price">{{apartment.price}}</span> ₸ / сут</p>
+            </div>
+        </div>
+        <div class="col-md-8 col-12">
             <div class="description">
                 {{apartment.description|safe|linebreaks }}
             </div>
         </div>
-        <div class="col-4">
-            <div class="justify-content-center">
-                <p class="price-text">Базовая цена: <span class="price">{{apartment.price}}</span> ₸ / сут</p>
-            </div>
+        <div class="col-md-4 col-12">
             <iframe
                 width="100%"
                 height="400px"
@@ -103,7 +133,7 @@
                 src="{{apartment.googlemap_addres}}">
             </iframe>
         </div>
-        <div class="col-2 offset-5 mb-5">
+        <div class="col-md-2 col-12 offset-md-5 mb-md-5 d-flex justify-content-md-start justify-content-center">
             <a class="nav-link phone" href="#">
                 <img src="{% static 'img/icons/phone.svg' %}">
                 <div class="ms-3">
@@ -112,7 +142,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-2 offset-3 mb-5 d-flex justify-content-end">
+        <div class="col-md-2 col-12 offset-md-3 mb-5 d-flex justify-content-md-end justify-content-center">
             <a class="nav-link phone" href="#">
                 <img width="40px" src="{% static 'img/icons/whatsapp.png' %}">
                 <div class="ms-3">
