@@ -3,18 +3,26 @@
 {% load custom_tags %}
 
 {% block content %}
-
-<div class="container-fluid">
-    <img class="w-100" src="{% static 'img/main.jpg' %}">
+<div class="main-img">
+    <img src="{% static 'img/main.jpg' %}">
 </div>
-<div class="container">
+<div class="container-md container-fluid">
     <div class="row">
-        <p class="main-text mt-4 mb-4">Алматы, ЖК Алмалы, напротив Алматы Арены</p>
-        <div class="col-8">
+        <div class="col-lg-7 col-12">
+            <p class="main-text mt-4 mb-4">Алматы, ЖК Алмалы, напротив Алматы Арены</p>
+        </div>
+        <div class="col-lg-5 col-12">
+            <div class="block mt-3">
+                <p class="search">Поиск по количеству комнат</p>
+                <a {% if type == 1 %}href="/"{% else %}href="/?rooms=1"{% endif %} class="btn btn-toggle-blue me-5 {% if type == 1 %}active{% endif %}">1</a>
+                <a {% if type == 2 %}href="/"{% else %}href="/?rooms=2"{% endif %} class="btn btn-toggle-blue {% if type == 2 %}active{% endif %}">2</a>
+            </div>
+        </div>
+        <div class="col-lg-7 col-12">
             <div id="cards">
                 {% for apartment in apartments %}
                 <div class="my-card">
-                    <img class="me-5" src="/media/{{apartment.photo_main_little}}">
+                    <img class="apartment-img me-2" src="/media/{{apartment.photo_main_little}}">
                     <div class="card-body">
                         <h6 class="apartment-title">{{apartment.type|apartment}}</h6>
                         <p class="apartment-content"><span class="fw-500">Базовая цена:</span> {{apartment.price|space}} Тенге/Cутки</p>
@@ -28,12 +36,7 @@
                 <button id="show_more" onclick="add_data()" class="btn btn-blue">Показать еще</button>
             </div>
         </div>
-        <div class="col-4">
-            <div class="block">
-                <p class="search">Поиск по количеству комнат</p>
-                <a {% if type == 1 %}href="/"{% else %}href="/?rooms=1"{% endif %} class="btn btn-toggle-blue me-5 {% if type == 1 %}active{% endif %}">1</a>
-                <a {% if type == 2 %}href="/"{% else %}href="/?rooms=2"{% endif %} class="btn btn-toggle-blue {% if type == 2 %}active{% endif %}">2</a>
-            </div>
+        <div class="col-lg-5 col-12">
             <h2 class="description-title">Описание</h2>
             <p class="description">
                 Предоставляем большой выбор квартир в ЖК Алмалы, Базис, Almaty Arena.<br/>
@@ -99,7 +102,7 @@
             type = "Двухкомнатная квартира"
             if (data.type == "О") type = "Однокомнатная квартира"
             document.getElementById("cards").innerHTML += `<div class="my-card">
-                        <img class="me-5" src="${data.photo_main_little}">
+                        <img class="me-2" src="${data.photo_main_little}">
                         <div class="card-body">
                             <h6 class="apartment-title">${type}</h6>
                             <p class="apartment-content"><span class="fw-500">Базовая цена:</span> ${data.price.toLocaleString()} Тенге/Cутки</p>
