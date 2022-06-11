@@ -112,7 +112,7 @@
 }
 
 .block {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgb(245, 245, 245);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     text-align: center;
@@ -359,8 +359,50 @@
 .main-img, .main-img img {
     width: 100%
 }
+@media (min-width: 768px) {
+    .col-md-5-5 {
+        flex: 0 0 auto;
+        width: 45.833333333333%;
+    }
+    
+    .col-md-6-5 {
+        flex: 0 0 auto;
+        width: 54.166666666667%;
+    }
+}
 
 @media (max-width: 768px) {
+    .block {
+        padding: 16px;
+    }
+
+    .btn-toggle-blue {
+        font-size: 20px;
+        line-height: 26px;
+        padding: 10px 24px;
+    }
+
+    .search {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .facility-title {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .facility-card {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .description-title {
+        font-size: 25px;
+        line-height: 33px;
+    }
+
     .main-img {
         overflow: hidden;
         direction: rtl;
@@ -385,8 +427,8 @@
 
     .main-text {
         font-weight: 500;
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 26px;
+        line-height: 30px;
     }
     
     .navbar-brand {
@@ -398,17 +440,43 @@
         height: 211px;
     }
 
+    .card-body {
+        padding: 0.3rem;
+    }
+    
+    .apartment-title {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 25px;
+    }
+
     .apartment-img {
         border-radius: 10px;
         width: 36%;
     }
     
     .apartment-content {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 20px;
         margin-bottom: 10px;
     }
     
     .apartment-rooms {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
         margin-bottom: 0;
+    }
+
+    .my-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-blue {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
     }
 
     .card-body {
