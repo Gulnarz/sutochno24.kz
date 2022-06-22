@@ -4,21 +4,21 @@
 
 {% block content %}
 <div class="container mt-3">
-    <div class="row align-items-end">
+    <div class="row align-items-end pt-4 pt-md-2">
         <div class="col-md-8 col-12">
-            <h3 class="main-text">{{apartment.address}}<br/>{{apartment.type|apartment}} {{apartment.name}}</h3>
+            <h3 class="second-main-text">{{apartment.address}}<br/>{{apartment.type|apartment}} {{apartment.name}}</h3>
         </div>
         <div class="col-md-4 col-12"><hr style="color:#767676;"></div>
     </div>
-    <div class="row mb-5">
-        <div class="col-md-5-5 col-12 mb-md-0 mb-3">
+    <div class="row mb-5 pt-0 pt-md-3">
+        <div class="col-md-5-5 col-12 mb-md-0 mb-3 big-img-wrapper">
             <img class="big-img" src="/media/{{apartment.photo_main}}">
         </div>
         <div class="col-md-6-5 col-12">
             <div class="d-flex flex-md-column flex-row align-items-start h-100">
-                <div class="col me-md-0 me-3 mb-auto">
-                    <div class="row">
-                        <div class="col-4">
+                <div class="col me-0 mb-auto">
+                    <div class="images-row">
+                        <div class="images-row__col">
                             <div class="small-img">
                                 <a href="#" id="1" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
                                     <div class="zoom-border">
@@ -28,7 +28,7 @@
                                 <img src="/media/{{apartment.photo_1}}">
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="images-row__col">
                             <div class="small-img">
                                 <a href="#" id="2" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
                                     <div class="zoom-border">
@@ -38,7 +38,7 @@
                                 <img src="/media/{{apartment.photo_2}}">
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="images-row__col">
                             <div class="small-img">
                                 <a href="#" id="3" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
                                     <div class="zoom-border">
@@ -51,8 +51,8 @@
                     </div>
                 </div>
                 <div class="col ms-md-0 ms-2 d-flex align-items-end">
-                    <div class="row">
-                        <div class="col-4">
+                    <div class="images-row">
+                        <div class="images-row__col">
                             <div class="small-img">
                                 <a href="#" id="4" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
                                     <div class="zoom-border">
@@ -62,7 +62,7 @@
                                 <img src="/media/{{apartment.photo_4}}">
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="images-row__col">
                             <div class="small-img">
                                 <a href="#" id="5" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
                                     <div class="zoom-border">
@@ -72,7 +72,7 @@
                                 <img src="/media/{{apartment.photo_5}}">
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="images-row__col">
                             <div class="small-img">
                                 <a href="#" id="6" onclick="change_image(event)" data-bs-toggle="modal" data-bs-target="#photoModal" class="zoom">
                                     <div class="zoom-border">
@@ -93,27 +93,27 @@
         <h2 class="description-title-little">Описание</h2>
         <div class="col-md-8 col-12">
             <div class="d-flex mb-2">
-                <img class="me-3" src="{% static 'img/icons/people.svg' %}">
+                <img style="width: 40px" class="me-3" src="{% static 'img/icons/people.svg' %}">
                 <p class="blue-text">
                     возможность размещения {{apartment.max_person}}
                 </p>
             </div>
             <div class="d-flex flex-md-row flex-column mb-2">
                 <div class="d-flex flex-row">
-                    <img style="height: 30px; margin-top: 5px; margin-bottom: 5px; margin-left: 10px;" class="me-3" src="{% static 'img/icons/bed-1.svg' %}">
+                    <img style="height: 30px; margin-top: 5px; margin-bottom: 5px;" class="me-3" src="{% static 'img/icons/bed.svg' %}">
                     <p class="blue-text">
                         1 местная кровать
                     </p>
                 </div>
                 <div class="d-flex flex-row">
-                    <img style="height: 30px; margin-top: 5px; margin-bottom: 5px; margin-left: 10px;" class="me-3" src="{% static 'img/icons/bed-2.svg' %}">
+                    <img style="height: 30px; margin-top: 5px; margin-bottom: 5px;" class="me-3" src="{% static 'img/icons/bed.svg' %}">
                     <p class="blue-text">
                         2-х местная кровать + диван
                     </p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 d-flex flex-column justify-content-end">
             <div class="justify-content-md-center">
                 <p class="price-text">Базовая цена: <span class="price">{{apartment.price}}</span> ₸ / сут</p>
             </div>
@@ -134,16 +134,16 @@
             </iframe>
         </div>
         <div class="col-md-2 col-12 offset-md-5 mb-md-5 d-flex justify-content-md-start justify-content-center">
-            <a class="nav-link phone" href="#">
+            <a class="nav-link phone" href="tel:+77070195546">
                 <img src="{% static 'img/icons/phone.svg' %}">
                 <div class="ms-3">
                     <p style="color: #395F7D" class="phone-top-text">ЗАРЕЗЕРВИРОВАТЬ</p>
-                    <p class="phone-bot-text">+ 7  777  777  77  77</p>
+                    <p class="phone-bot-text">+ 7 707 019 55 46</p>
                 </div>
             </a>
         </div>
         <div class="col-md-2 col-12 offset-md-3 mb-5 d-flex justify-content-md-end justify-content-center">
-            <a class="nav-link phone" href="#">
+            <a class="nav-link phone" href="https://wa.me/+77027956889">
                 <img width="40px" src="{% static 'img/icons/whatsapp.png' %}">
                 <div class="ms-3">
                     <p style="color: #395F7D" class="phone-top-text">ЗАРЕЗЕРВИРОВАТЬ</p>
