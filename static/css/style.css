@@ -12,6 +12,10 @@
     color: #395F7D!important;
 }
 
+.nav-link {
+    padding: 0.5rem 0rem;
+}
+
 .nav-item {
     margin-left: 1.5rem;
 }
@@ -51,6 +55,16 @@
     font-weight: 500;
     font-size: 40px;
     line-height: 47px;
+
+    color: #395F7D;
+}
+
+.second-main-text {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 41px;
 
     color: #395F7D;
 }
@@ -188,12 +202,17 @@
     margin-bottom: 1.5rem;
 }
 
+.facility-card-wrapper {
+    width: calc(25% - 16px);
+    margin-bottom: 2rem;
+}
+
 .facility-card {
     background-color: #ffffff;
     text-align: center;
     padding-top: 2rem;
     padding-bottom: 1.5rem;
-    margin-bottom: 2rem;
+    height: 100%;
 }
 
 .facility-icon {
@@ -242,15 +261,18 @@
     width: 100%;
     margin-right: 1.5rem;
     height: fit-content;
+    max-height: 520px;
 }
 
 .small-img {
     position: relative;
-    height: fit-content;
+    height: 100%;
 }
 
 .small-img img {
     width: 100%;
+    height: 100%;
+    max-height: 248px;
 }
 
 .whatsapp {
@@ -308,8 +330,8 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
-    font-size: 25px;
-    line-height: 29px;
+    font-size: 22px;
+    line-height: 26px;
     color: #395F7D;
     margin-bottom: auto;
     height: fit-content;
@@ -359,6 +381,21 @@
 .main-img, .main-img img {
     width: 100%
 }
+
+.images-row {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 12px);
+}
+
+.images-row__col {
+    width: calc(100%/3 - 8px);
+}
+
+.big-img-wrapper {
+    padding-right: 0;
+}
+
 @media (min-width: 768px) {
     .col-md-5-5 {
         flex: 0 0 auto;
@@ -392,10 +429,14 @@
         line-height: 40px;
     }
 
+    .facility-card-wrapper {
+        width: calc(50% - 10px);
+        margin-bottom: 1.5rem;
+    }
+
     .facility-card {
         padding-top: 1rem;
         padding-bottom: 1rem;
-        margin-bottom: 1.5rem;
     }
 
     .description-title {
@@ -413,6 +454,8 @@
     }
 
     .blue-text {
+        font-size: 18px;
+        line-height: 21px;
         margin-right: 0;
         width: fit-content;
     }
@@ -423,6 +466,7 @@
 
     .big-img {
         margin: 0;
+        max-height: 328px;
     }
 
     .main-text {
@@ -430,14 +474,20 @@
         font-size: 26px;
         line-height: 30px;
     }
+
+    .second-main-text {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+    }
     
     .navbar-brand {
-        margin: 20px auto;
+        margin: 20px auto 8px;
         color: white!important;
     }
     
     .background, .background .bg-img {
-        height: 211px;
+        height: 160px;
     }
 
     .card-body {
@@ -501,5 +551,26 @@
     .my-card .btn-blue:hover {
         color: transparent;
         background-color: transparent;
+    }
+    .whatsapp {
+        display: none;
+    }
+    .nav-item {
+        margin-left: 1rem;
+    }
+    .images-row__col {
+        width: calc(100%/3 - 4px);
+    }
+    .big-img-wrapper {
+        padding-right: 0.75rem;
+    }
+    .price-text {
+        font-size: 20px;
+        line-height: 23px;
+        text-align: left;
+    }
+    .price {
+        font-size: 25px;
+        line-height: 32px;
     }
 }
