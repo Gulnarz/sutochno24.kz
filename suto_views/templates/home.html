@@ -107,7 +107,7 @@
             type = "Двухкомнатная квартира"
             if (data.type == "О") type = "Однокомнатная квартира"
             document.getElementById("cards").innerHTML += `<div class="my-card">
-                        <img class="me-2" src="${data.photo_main_little}">
+                        <img class="apartment-img me-2" src="${data.photo_main_little}">
                         <div class="card-body">
                             <h6 class="apartment-title">${type}</h6>
                             <p class="apartment-content"><span class="fw-500">Базовая цена:</span> ${data.price.toLocaleString()} Тенге/Cутки</p>
