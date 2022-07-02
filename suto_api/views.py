@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework import status
 from suto_api.models import Apartment
 from suto_api.serializers import ApartmentSerializer
@@ -8,6 +8,8 @@ from suto_api.serializers import ApartmentSerializer
 # Create your views here.
 
 @api_view(['GET'])
+@authentication_classes([])
+@permission_classes([])
 def get_apartments(request):
     page = int(request.GET.get("page", 1))
     rooms = int(request.GET.get("rooms", 0))

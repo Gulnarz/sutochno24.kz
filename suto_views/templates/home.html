@@ -33,7 +33,7 @@
                 {% endfor %}
             </div>
             <div class="text-center mb-5">
-                <button id="show_more" onclick="add_data()" class="btn btn-blue">Показать еще</button>
+                <button id="show_more" class="btn btn-blue">Показать еще</button>
             </div>
         </div>
         <div class="col-lg-5 col-12">
@@ -77,6 +77,11 @@
     window.onload = start
 
     function start() {
+        reload_button();
+        button.addEventListener("click", add_data)
+    }
+
+    function reload_button() {
         if (!has_next) {
             button.disabled = true
         }
@@ -111,7 +116,7 @@
                         </div>
                     </div>`;
         }
-        start();
+        reload_button();
     }
 </script>
 {% endblock script %}
