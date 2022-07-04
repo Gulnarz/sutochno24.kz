@@ -20,16 +20,20 @@
     margin-left: 1.5rem;
 }
 
+.position-relative {
+    position: relative;
+}
+
 .background {
     position: absolute;
     left: 0;
     right: 0;
-    height: 100px;
+    height: 100%;
     z-index: -1;
 }
 
 .background .bg-img {
-    height: 100px;
+    height: 100%;
 }
 
 .background.top {
@@ -485,10 +489,6 @@
         margin: 20px auto 8px;
         color: white!important;
     }
-    
-    .background, .background .bg-img {
-        height: 160px;
-    }
 
     .card-body {
         padding: 0.3rem;
@@ -551,9 +551,6 @@
     .my-card .btn-blue:hover {
         color: transparent;
         background-color: transparent;
-    }
-    .whatsapp {
-        display: none;
     }
     .nav-item {
         margin-left: 1rem;

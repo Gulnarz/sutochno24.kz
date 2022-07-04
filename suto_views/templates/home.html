@@ -18,9 +18,10 @@
                 <a {% if type == 2 %}href="/"{% else %}href="/?rooms=2"{% endif %} class="btn btn-toggle-blue {% if type == 2 %}active{% endif %}">2</a>
             </div>
         </div>
-        <div class="col-lg-7 col-12">
-            <div id="cards">
-                {% for apartment in apartments %}
+    </div>
+    <div id="cards" class="row justify-content-center">
+        {% for apartment in apartments %}
+            <div class="col-lg-6 col-12">
                 <div class="my-card">
                     <img class="apartment-img me-2" src="/media/{{apartment.photo_main_little}}">
                     <div class="card-body">
@@ -30,39 +31,69 @@
                         <a href="/apartment/{{apartment.name}}" class="float-end btn btn-blue">Подробнее</a>
                     </div>
                 </div>
-                {% endfor %}
             </div>
-            <div class="text-center mb-5">
-                <button id="show_more" class="btn btn-blue">Показать еще</button>
+        {% endfor %}
+    </div>
+    <div class="text-center mb-5">
+        <button id="show_more" class="btn btn-blue">Показать еще</button>
+    </div>
+</div>
+<div class="container-fluid facilities">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-md-5 mt-3">
+                <h3 class="facility-title">Высокие стандарты чистоты</h3>
             </div>
-        </div>
-        <div class="col-lg-5 col-12">
-            <h2 class="description-title">Описание</h2>
-            <p class="description">
-                Предоставляем большой выбор квартир в ЖК Алмалы, Базис, Almaty Arena.<br/>
-                <br/>
-                Развитая инфраструктура<br/>
-                Расчетный час 12:00 часов дня.<br/>
-                Заезд в квартиру после 14:00 часов.<br/>
-                Выезд до 12:00 часов.<br/>
-                Влажная уборка квартиры с 12:00 до 14:00.<br/>
-                При раннем заезде или позднем выезде производится доплата из расчета 1000 тенге в час.<br/>
-                <br/>
-                При заезде более 2-х персон, а так же в выходные и праздничные дни стоимость может меняться.<br/>
-                <br/>
-                По запросу предоставляем полный пакет документов.<br/>
-                <br/>
-                Принимается любая форма оплаты.<br/>
-                <br/>
-                При заселении при себе иметь документ удосторяющий личность - удостоврение, паспорт.<br/>
-                <br/>
-                Курить в квартире ЗАПРЕЩЕНО.<br/>
-                ШТРАФ - 10 000 ₸. Курить разрешено только на балконе.<br/>
-                В квартире есть абсолютно все для длительного и комфортного пребывания.<br/>
-                <br/>
-                Имеются: одноразовый набор - паста, щетка, шампунь, набор полотенец (банное, лицевое и для ног).<br/>
-                Предоставляются по индивидуальному запросу белые вафельные халаты. Аренда халата 1000 тенге.<br/>
-            </p>
+            <div class="d-flex flex-wrap justify-content-between align-items-stretch mb-0 mb-md-4">
+                <div class="facility-card-wrapper">
+                    <div class="facility-card">
+                        <img width="60" src="{% static 'img/icons/wifi.svg' %}" class="facility-icon mb-md-4 mb-1">
+                        <p class="facility-text">Wi-Fi</p>
+                    </div>
+                </div>
+                <div class="facility-card-wrapper">
+                    <div class="facility-card">
+                        <img width="60" src="{% static 'img/icons/hair-dryer.svg' %}" class="facility-icon mb-md-4 mb-1">
+                        <p class="facility-text">Фен</p>
+                    </div>
+                </div>
+                <div class="facility-card-wrapper">
+                    <div class="facility-card">
+                        <img width="60" src="{% static 'img/icons/iron.svg' %}" class="facility-icon mb-md-4 mb-1">
+                        <p class="facility-text">Утюг</p>
+                    </div>
+                </div>
+                <div class="facility-card-wrapper">
+                    <div class="facility-card">
+                        <img width="60" src="{% static 'img/icons/tv.svg' %}" class="facility-icon mb-md-4 mb-1">
+                        <p class="facility-text">Телевизор</p>
+                    </div>
+                </div>
+                <div class="facility-card-wrapper">
+                    <div class="facility-card">
+                        <img width="60" src="{% static 'img/icons/dishes.svg' %}" class="facility-icon mb-md-4 mb-1">
+                        <p class="facility-text">Посуда</p>
+                    </div>
+                </div>
+                <div class="facility-card-wrapper">
+                    <div class="facility-card">
+                        <img width="60" src="{% static 'img/icons/freezer.svg' %}" class="facility-icon mb-md-4 mb-1">
+                        <p class="facility-text">Холодильник</p>
+                    </div>
+                </div>
+                <div class="facility-card-wrapper">
+                    <div class="facility-card">
+                        <img width="60" src="{% static 'img/icons/washing-machine.svg' %}" class="facility-icon mb-md-4 mb-1">
+                        <p class="facility-text">Стиральная машина</p>
+                    </div>
+                </div>
+                <div class="facility-card-wrapper">
+                    <div class="facility-card">
+                        <img width="60" src="{% static 'img/icons/vacuum-cleaner.svg' %}" class="facility-icon mb-md-4 mb-1">
+                        <p class="facility-text">Пылесос</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -106,7 +137,8 @@
             data = datas.apartments[id]
             type = "Двухкомнатная квартира"
             if (data.type == "О") type = "Однокомнатная квартира"
-            document.getElementById("cards").innerHTML += `<div class="my-card">
+            document.getElementById("cards").innerHTML += `<div class="col-lg-6 col-12">
+                    <div class="my-card">
                         <img class="apartment-img me-2" src="${data.photo_main_little}">
                         <div class="card-body">
                             <h6 class="apartment-title">${type}</h6>
@@ -114,7 +146,8 @@
                             <p class="float-start apartment-rooms" style="width: fit-content">${data.name}</p>
                             <a href="/apartment/${data.name}" class="float-end btn btn-blue">Подробнее</a>
                         </div>
-                    </div>`;
+                    </div>
+                </div>`;
         }
         reload_button();
     }
