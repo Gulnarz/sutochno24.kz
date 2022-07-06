@@ -400,6 +400,11 @@
     padding-right: 0;
 }
 
+.icon {
+    width: 40px;
+    margin-right: 1rem;
+}
+
 @media (min-width: 768px) {
     .col-md-5-5 {
         flex: 0 0 auto;
@@ -569,5 +574,36 @@
     .price {
         font-size: 25px;
         line-height: 32px;
+    }
+}
+
+@media (max-width: 400px) {
+    .description-title-little {
+        font-size: 8vw;
+        line-height: 8.2vw;
+    }
+    .price-text {
+        font-size: 5vw;
+        line-height: 5.3vw;
+    }
+    .price {
+        font-size: 5.3vw;
+        line-height: 6vw;
+    }
+    .blue-text {
+        font-size: 4.7vw;
+        line-height: 5vw;
+    }
+    .second-main-text {
+        font-size: 4.7vw;
+        line-height: 5vw;
+    }
+    .icon {
+        width: 10vw;
+        margin-right: 4.1vw;
+    }
+    .description {
+        font-weight: 400;
+        font-size: 4vw;
     }
 }
