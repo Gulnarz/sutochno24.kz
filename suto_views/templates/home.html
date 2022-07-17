@@ -19,6 +19,7 @@
             </div>
         </div>
     </div>
+    {% if apartments %}
     <div id="cards" class="row justify-content-center">
         {% for apartment in apartments %}
             <div class="col-lg-6 col-12">
@@ -37,6 +38,9 @@
     <div class="text-center mb-5">
         <button id="show_more" class="btn btn-blue">Показать еще</button>
     </div>
+    {% else %}
+        <h1 class="m-5 text-center">Нет свободных домов</h1>
+    {% endif %}
 </div>
 <div class="container-fluid facilities">
     <div class="container">

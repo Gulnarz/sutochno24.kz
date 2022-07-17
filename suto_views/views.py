@@ -9,6 +9,7 @@ def index(request):
     context = {
         "title": "SUTOCHNO24.KZ"
     }
+    apartments = Apartment.objects.filter(status="С")
     rooms = request.GET.get("rooms", 0)
     if rooms:
         if rooms == "1":
@@ -17,9 +18,9 @@ def index(request):
         else: 
             room = "Д"
             context["type"] = 2
-        all_obj = Apartment.objects.filter(type=room).all()
+        all_obj = apartments.filter(type=room).all()
     else:
-        all_obj = Apartment.objects.all()
+        all_obj = apartments.all()
     context["apartments"] = all_obj[:4]
     count = len(all_obj)
     if count > 4: context["has_next"] = True

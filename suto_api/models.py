@@ -19,7 +19,7 @@ class Apartment(models.Model):
     max_person = models.CharField(max_length=50)
     price = models.IntegerField()
     description = models.TextField()
-    status = models.CharField(max_length=1, choices=statuses, default="C")
+    status = models.CharField(max_length=1, choices=statuses, default="С")
     photo_main = models.FileField(upload_to="apartments", max_length=100, null=True, blank=True)
     photo_main_little = models.FileField(upload_to="apartments", max_length=100, null=True, blank=True)
     photo_1 = models.FileField(upload_to="apartments", max_length=100, null=True, blank=True)
