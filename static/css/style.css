@@ -3,6 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+figure {
+    margin: 0;
+}
+
 .navbar-brand {
     font-family: 'Gilda Display';
     font-style: normal;
@@ -389,7 +400,8 @@
 .images-row {
     display: flex;
     justify-content: space-between;
-    height: calc(100% - 12px);
+    height: 100%;
+    width: 100%;
 }
 
 .images-row__col {
@@ -405,6 +417,27 @@
     margin-right: 1rem;
 }
 
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 10fr);
+    grid-template-rows: repeat(3, 15vw);
+    grid-gap: 15px;
+}
+
+.gallery__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; 
+}
+
+.gallery__item--main {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
 @media (min-width: 768px) {
     .col-md-5-5 {
         flex: 0 0 auto;
@@ -418,6 +451,17 @@
 }
 
 @media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 12vw);
+        grid-gap: 5px;
+    }
+    .gallery__item--main {
+        grid-column-start: 1;
+        grid-column-end: 7;
+        grid-row-start: 1;
+        grid-row-end: 5;
+    }
     .block {
         padding: 16px;
     }
