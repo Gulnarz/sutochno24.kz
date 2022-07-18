@@ -15,6 +15,7 @@ statuses = [
 class Apartment(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=250)
+    address_details = models.CharField(max_length=250, default="")
     type = models.CharField(max_length=1, choices=types)
     max_person = models.CharField(max_length=50)
     price = models.IntegerField()

@@ -12,7 +12,7 @@ def change_status_busy(self, request, queryset):
 
 class ApartmentAdmin(admin.ModelAdmin):
     model = Apartment
-    list_display = ('name', 'type', 'address', 'status')
+    list_display = ('name', 'type', 'address', 'address_details', 'status')
 
     actions = [change_status_free, change_status_busy]
 
