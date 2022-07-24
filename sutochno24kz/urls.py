@@ -17,15 +17,23 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from suto_api.models import Apartment
 
 from suto_views import views
-from django.views.generic.base import TemplateView
+from django.contrib.sitemaps import GenericSitemap
+from django.contrib.sitemaps.views import sitemap
+
+info_dict = {
+    'queryset': Apartment.objects.all(),
+}
 
 urlpatterns = [
     path("api/", include('suto_api.urls')),
     path('admin/', admin.site.urls),
-    path('apartment/<str:name>', views.details),
+    path('apartment/<str:name>', views.details, name="apartment_detail"),
     path("robots.txt", views.robots_txt),
+    path('sitemap.xml', sitemap, {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.6)}},
+    name='django.contrib.sitemaps.views.sitemap'),
     path('', views.index)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

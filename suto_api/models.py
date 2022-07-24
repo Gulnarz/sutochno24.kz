@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -36,3 +37,7 @@ class Apartment(models.Model):
     photo_11 = models.FileField(upload_to="apartments", max_length=100, null=True, blank=True)
     photo_12 = models.FileField(upload_to="apartments", max_length=100, null=True, blank=True)
     googlemap_addres = models.CharField(max_length=10000)
+
+    def get_absolute_url(self):
+        return reverse("apartment_detail", kwargs={"name": self.name})
+    
