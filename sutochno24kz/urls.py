@@ -19,11 +19,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 from suto_views import views
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path("api/", include('suto_api.urls')),
     path('admin/', admin.site.urls),
     path('apartment/<str:name>', views.details),
+    path("robots.txt", views.robots_txt),
     path('', views.index)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

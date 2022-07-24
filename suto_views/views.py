@@ -27,6 +27,14 @@ def index(request):
     else: context["has_next"] = False
     return render(request, "home.html", context)
 
+def robots_txt(request):
+    lines = [
+        "User-Agent: *",
+        "Allow /",
+        "Disallow /admin/"
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
+
 def details(request, name):
     context = {}
     apartment = Apartment.objects.filter(name=name).first()
