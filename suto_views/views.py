@@ -31,7 +31,8 @@ def robots_txt(request):
     lines = [
         "User-Agent: *",
         "Allow: /",
-        "Disallow: /admin/"
+        "Disallow: /admin/",
+        "Sitemap: https://sutochno24.kz/sitemap.xml"
     ]
     return HttpResponse("\n".join(lines), content_type="text/plain")
 
