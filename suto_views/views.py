@@ -30,8 +30,8 @@ def index(request):
 def robots_txt(request):
     lines = [
         "User-Agent: *",
-        "Allow /",
-        "Disallow /admin/"
+        "Allow: /",
+        "Disallow: /admin/"
     ]
     return HttpResponse("\n".join(lines), content_type="text/plain")
 
