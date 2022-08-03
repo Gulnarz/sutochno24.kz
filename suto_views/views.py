@@ -33,7 +33,7 @@ def robots_txt(request):
         "User-Agent: *",
         "Allow: /",
         "Disallow: /admin/",
-        "Sitemap: https://sutochno24.kz/sitemap.xml"
+        "Sitemap: https://sutochno24.kz/sitemap"
     ]
     return HttpResponse("\n".join(lines), content_type="text/plain")
 
