@@ -14,12 +14,11 @@ def get_apartments(request):
     page = int(request.GET.get("page", 1))
     rooms = int(request.GET.get("rooms", 0))
     has_next = False
+    apartments_all = Apartment.objects.filter(status="С")
     if rooms == 1:
-        apartments_all = Apartment.objects.filter(type="О")
+        apartments_all = apartments_all.filter(type="О")
     elif rooms == 2:
-        apartments_all = Apartment.objects.filter(type="Д")
-    else:
-        apartments_all = Apartment.objects.all()
+        apartments_all = apartments_all.filter(type="Д")
     if page != 1:
         apartments = apartments_all[4+(page-2)*2:4+(page-2)*2+2]
         count = len(apartments_all)

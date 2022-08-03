@@ -1,3 +1,4 @@
+from urllib.parse import quote
 from django.http import HttpResponse
 from django.utils.translation import gettext
 from django.shortcuts import redirect, render
@@ -40,8 +41,14 @@ def details(request, name):
     context = {}
     apartment = Apartment.objects.filter(name=name).first()
     if not apartment:
-        messages.add_message(request, messages.ERROR, "Apartment doesn't found")
+        messages.add_message(request, messages.ERROR, "Apartment isn't found")
         return redirect("/")
     context["title"] = apartment.address
     context["apartment"] = apartment
     return render(request, "details.html", context)
+
+def sitemap(request):
+    lines = ["https://sutochno24.kz"]
+    for apartment in Apartment.objects.filter(status="С").all():
+        lines.append(f"https://sutochno24.kz/apartment/{quote(apartment.name)}")
+    return HttpResponse("\n".join(lines), content_type="text/plain")
