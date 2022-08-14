@@ -437,7 +437,10 @@ figure {
     grid-row-start: 1;
     grid-row-end: 3;
 }
-
+keywords {
+    font-size: 10px;
+    color: transparent;
+}
 @media (min-width: 768px) {
     .col-md-5-5 {
         flex: 0 0 auto;

@@ -2,6 +2,10 @@
 {% load static %}
 {% load custom_tags %}
 
+{% block meta %}
+<meta name="DC.title" content="{{apartment.type|apartment}}, {{apartment.address}}. Базовая цена: {{apartment.price}}₸ / сут" />
+<meta name="description" content="{{apartment.type|apartment}}, {{apartment.address}}. Базовая цена: {{apartment.price}}₸ / сут" />
+{% endblock meta %}
 {% block content %}
 <div class="container mt-3">
     <div class="row align-items-end pt-4 pt-md-2">
@@ -12,7 +16,7 @@
     </div>  
     <div class="gallery mb-4">
         <figure class="gallery__item--main">
-            <img src="/media/{{apartment.photo_main}}" class="gallery__img">
+            <img src="/media/{{apartment.photo_main}}" alt="Аренда квартир Алматы суточно" class="gallery__img">
         </figure>
         <figure class="gallery__item">
             <div class="gallery__img small-img" data-bs-target="#myCarousel" data-bs-slide-to="0">
